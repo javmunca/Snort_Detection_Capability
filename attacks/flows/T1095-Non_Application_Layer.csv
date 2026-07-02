@@ -1,0 +1,5 @@
+Flow Number,Seq,Start TimeStamp,Finish TimeStamp,Protocol,Src IP,Src Port,Dst IP,Dst Port,ICMP ID,Type,ID Sub/Technique,#Attack Messages,#Attack Instances,Unnamed: 14
+1.0,1,1722858957.5807843,1722858963.4784172,TCP,172.16.2.2,55886,172.16.1.2,8888,,C,T1071,0.0,1.0,El agente Caldera abre la sesión C2 clásica en 8888. Se cuenta como instancia colateral. No genera mensaje de alerta adicional.
+,2,1722858957.5808132,1722858963.45625,TCP,172.16.1.2,8888,172.16.2.2,55886,,,,,,
+2.0,5,1722858963.4784167,1722858977.6139605,TCP,172.16.2.2,53296,172.16.1.2,7010,,P,T1095,1.0,1.0,Conexión C2 “oculta” en el puerto TCP 7010 (no habitual). El primer comando/patrón RAT dispara la única alerta de red ⇒ instancia principal.
+,6,1722858963.47845,1722858977.613982,TCP,172.16.1.2,7010,172.16.2.2,53296,,,,,,

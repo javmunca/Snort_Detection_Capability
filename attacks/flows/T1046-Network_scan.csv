@@ -1,0 +1,5 @@
+Flow Number,Seq,Start TimeStamp,Finish TimeStamp,Protocol,Src IP,Src Port,Dst IP,Dst Port,ICMP ID,Type,ID Sub/Technique,#Attack Messages,#Attack Instances,Unnamed: 14
+1.0,1,1519912674.262686,1519912745.587894,TCP,172.31.69.13,50887,13.58.225.34,31337,,C,T1071,0.0,1.0,Primer socket: apertura de remote shell al C2. No genera mensaje de detección (la alerta está asociada al escaneo).
+,2,1519912674.263112,1519912745.629586,TCP,13.58.225.34,31337,172.31.69.13,50887,,,,,,
+2.0,3,1519928295.450938,1519932970.809022,TCP,172.31.69.13,53445,13.58.225.34,31337,,P,T1046,1.0,1.0,Ráfaga de paquetes con patrón LOIC; la anomalía volumétrica dispara la única alerta de red.
+,4,1519928295.45143,1519932970.809306,TCP,13.58.225.34,31337,172.31.69.13,53445,,,,,,
