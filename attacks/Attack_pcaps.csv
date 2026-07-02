@@ -1,0 +1,111 @@
+pcap;Tactic;ID Tactic;Other tactics;Technique;ID Technique;Subtechnique;ID Subtechnique;Origin;Attack;Attack protocol;Attack tool;#Flows;#Attack_flows
+T1001.002-Data_obfuscation_steganography;Command and Control;TA0040;-;Data Obfuscation;T1001;Steganography;T1001.002;New;Inserción de información confidencial en una imagen JPG;SSH;Covenant, SSH, scp, Powershell;1;1
+T1001.003-Data_obfuscation_protocol_impersonation;Command and Control;TA0040;-;Data Obfuscation;T1001;Protocol Impersonation;T1001.003;New;Falsificación de protocolos de conexión segura como SSL o TLS;TLS;FakeTLS (raykaryshyn Github);1;1
+T1003.006-Os_credential_dumping_dcsync;Credential Access;TA0006;-;OS Credential Dumping;T1003;DCSync;T1003.006;New;Obtención de credenciales del usuario krbtgt (Usuario Kerberos Active Directory);DCERPC;mimikazt;3;1
+T1008-Fallback_channels;Command and Control;TA0040;-;Fallback Channels;T1008;-;-;New;Traspaso de canal primario C2 a canal alternativo;SMB2;Covenant;6;3
+T1011-Exfiltration;Exfiltration;TA0010;-;Exfiltration Over Other Network Medium;T1011;-;-;New;Exfiltración de un fichero de texto en claro hacia el servidor del atacante por el puerto TCP 8080 a través de la herramienta netcat.;TCP;netcat;1;1
+T1018-Service_discovery;Discovery;TA0007;-;Remote System Discovery;T1018;-;-;New;Descubrimiento de servicios y puertos;TCP;nmap;1002;1002
+T1020.001-Automated_exfiltration_traffic_duplication;Exfiltration;TA0010;-;Automated Exfiltration;T1020;Traffic Duplication;T1020.001;New;Ejecución de script en Python para activar el reenvío de paquetes en el equipo víctima;SSH;SSH, Scapy;26;1
+T1021.004-remote_services_ssh;Lateral Movement;TA0008;-;Remote Services;T1021;SSH;T1021.004;New;Sesión SSH;SSH;SSH;1;1
+T1029-Scheduled_transfer;Exfiltration;TA0010;-;Scheduled Transfer;T1029;-;-;New;Comunicación C2 para el establecimiento de extracción programada;HTTP;Covenant, Powershell;9;2
+T1030-Transfer_Size_Limits;Exfiltration;TA0010;-;Data Transfer Size Limits;T1030;-;-;New;Dividir archivos para realizar transferencias menores a un umbral que provoque alertas;FTP;ftp, split;68;2
+T1033-System_owner;Discovery;TA0007;-;System Owner;T1033;-;-;New;Descubrimiento de sesión de usuario en equipo remoto;DCERPC;quser, qwinsta;13;1
+T1039-Data_from_network_shared_drive;Collection;TA0009;-;Data from Network Shared Drive;T1039;-;-;New;Descarga de archivos de interés disponibles en una red compartida;SMB2;Comando Net Use;3;1
+T1041-exfiltration_over_c2_channel;Exfiltration;TA0010;-;Exfiltration Over C2 Channel;T1041;-;-;New;Exfiltración por canal C2;HTTP;Caldera;2;1
+T1046-Network_scan;Discovery;TA0007;-;Network Service Discovery;T1046;-;-;CIC2018;Mútliples actividades de escaneo, incluidas el intento de Shell Remoto aprovechando el conocimiento de la red victima;-;Low Orbit Ion Canon (LOIC) for UDP, TCP, or HTTP requests;2;2
+T1046-Version_services_detection1;Discovery;TA0007;-;Network Service Discovery;T1046;-;-;New;Descubrimiento de servicios y version;HTTP;Nikto;160;159
+T1046-Version_services_detection2;Discovery;TA0007;-;Network Service Discovery;T1046;-;-;New;Descubrimiento de servicios y version;-;nmap;65684;65680
+T1047-WinRM;Execution;TA0002;-;Windows Management Instrumentation;T1047;-;-;New;Ejecución de carga por WinRM;HTTP;Metasploit;912;451
+T1048.003-Exfiltration_over_FTP;Exfiltration;TA0010;-;Exfiltration Over Alternative Protocol;T1048;Exfiltration Over Unencrypted Non-C2 Protocol;T1048.003;New;Exfiltración por FTP;TCP;Caldera;10;1
+T1048.003-Exfiltration_over_ICMP ;Exfiltration;TA0010;-;Exfiltration Over Alternative Protocol;T1048;Exfiltration Over Unencrypted Non-C2 Protocol;T1048.003;New;Exfiltración por ICMP;ICMP;hping3;2;1
+T1053.002-Scheduled_TaskJob_At;Persistence;TA0003;Execution, Privilege Escalation;Scheduled Task/Job;T1053;At;T1053.002;New;Ejecución de tarea mediante uso de comando at para programar la hora de la ejecución;HTTP;Caldera, At;2;2
+T1070.005-Indicator_removal_network_share_connection_removal;Defense Evasion;TA0005;-;Indicator Removal;T1070;Network Share Connection Removal;T1070.005;New;Eliminación de conexiones establecidas via Network Share en Windows;SMB2;Comando Net Use;1;1
+T1071.004-Tunel;Command and Control;TA0040;-;Application Layer Protocol;T1071;DNS;T1071.004;New;Command - Control via DNS;DNS;dnscat2;198;10
+T1087.002-AccountDiscovery_DomainAccount;Discovery;TA0007;-;Account Discovery;T1087;Domain Account;T1087.002;New;Descubrimiento de cuentas de dominio en entorno Active Directory;HTTP;Caldera, net;2;2
+T1090.001-Proxy_internal_proxy;Command and Control;TA0040;-;Proxy;T1090;Internal Proxy;T1090.001;New;Uso de Equipo interno como Proxy para el ataque C2;HTTP;Covenant;23;2
+T1095-Non_Application_Layer;Command and Control;TA0040;-;Non-Application Layer Protocol;T1095;-;-;New;Usar un protocolo que no sea de la capa de Aplicacion en el modelo OSI para esconder la conexión de C2. En este caso utilizamos TCP;TCP;Caldera, manx;2;2
+T1102.003-Web_service-one_way_communication;Command and Control;TA0040;-;Web Service;T1102;One-Way Communication;T1102.003;New;Subida de información confidencial a Workspace de Google Drive;TLS;Covenant, Google Drive API;2;2
+T1104-Multi_stage_channels;Command and Control;TA0040;-;Multi-Stage Channels;T1104;-;-;New;Sesión Remota + Ataque C2;-;RDP, Covenant;1;2
+T1105-Ingress_Tool_Transfer;Command and Control;TA0040;-;Ingress Tool Transfer;T1105;-;-;New;Transferencia de archivos de un servidor C2 a un equipo previamente comprometido;FTP;Metasploit, FTP;7;1
+T1112-Modify_registry;Defense Evasion;TA0005;-;Modify Registry;T1112;-;-;New;Modificación del Registro de forma remota;WINREG;reg (Remoto);15;1
+T1114.002-Email_collection_remote_email_collection;Collection;TA0009;-;Email Collection;T1114;Remote Email Collection;T1114.002;New;Recolección de correos electrónicos de un servidor Microsoft Exchange haciendo uso de credenciales robadas;HTTP;PowerShell;10;3
+T1132.001-Standard_Encoding;Command and Control;TA0040;-;Data Encoding;T1132;Standard Encoding;T1132.001;New;Codificacion de mensajes entre la victima y el C2 Server mediante Base64;HTTP;Metasploit, curl, base64;10;6
+T1133-External_remote_services;Initial Access;TA0001;Persistence;External Remote Services;T1133;-;-;New;Acceso a red VPN desde dispositivo no autorizado con credenciales robadas;-;OpenVPN;32;1
+T1176-Browser-extension;Persistence;TA0003;-;Browser Extensions;T1176;-;-;New;Instalación de Plugin en Navegador Chrome que reenvía información relacionada con búsquedas del usuario a un servidor;HTTP;Malicious-browser-extension;217;212
+T1187-Forced_Authentication;Credential Access;TA0006;-;Forced Authentication;T1187;-;-;New;Forzar intento de autenticación en un servidor para obtener credenciales de acceso;SMB2;SMB, NTLMssp-Extract;8;1
+T1187-Forced_Authentication2;Credential Access;TA0006;-;Forced Authentication;T1187;-;-;New;Forzar intento de autenticación en un servidor para obtener credenciales de acceso;SMB2;SMB, NTLMssp-Extract;3;1
+T1189-Drive-by_compromise_v1;Initial Access;TA0001;-;Drive-by Compromise;T1189;-;-;New;HTML Exploit I - HTML Compilador;HTTP;Apache, Shadyantra;4;3
+T1189-Drive-by_compromise_v2;Initial Access;TA0001;-;Drive-by Compromise;T1189;-;-;New;HTML Exploit II - Descarga de Ejecutable;HTTP;Apache, Shadyantra;1;1
+T1190-Sql_injection;Initial Access;TA0001;-;Exploit Public-Facing Application;T1190;-;-;CIC2018;Inyección SQL;HTTP;Damn Vulnerable Web App (DVWA);77;76
+T1190-Sql_inyection1;Initial Access;TA0001;-;Exploit Public-Facing Application;T1190;-;-;New;Inyección SQL;HTTP;Sqlmap;50;35
+T1190-SQL_Injection_High_Bytes1;Initial Access;TA0001;-;Exploit Public-Facing Application;T1190;-;-;New;Inyección SQL;HTTP;curl, DVWA;1;1
+T1190-SQL_Injection_High_Bytes2;Initial Access;TA0001;-;Exploit Public-Facing Application;T1190;-;-;New;Inyección SQL;HTTP;curl, DVWA;1;1
+T1190-Sql_inyection2;Initial Access;TA0001;-;Exploit Public-Facing Application;T1190;-;-;New;Inyección SQL;HTTP;Sqlmap;1;1
+T1197-BITS_Jobs;Persistence;TA0003;Defense Evasion;BITS Jobs;T1197;-;-;New;Establecimiento de tarea BITS en equipo Windows para garantizar persistencia trás reinicio del equipo;TCP;BITSADMIN,METASPLOIT;43;11
+T1199-Trusted_relationship;Initial Access;TA0001;-;Trusted Relationship;T1199;-;-;New;Uso de una conexión RDP sin proteger para el acceso a un equipo;RDP;RDP;18;3
+T1200-Hardware_Additions;Initial Access;TA0001;-;Hardware Additions;T1200;-;-;New;Adición de Hardware;SSH;SSH Server + USB(Simular USB con MV con SO);3;1
+T1203-Botnet;Execution;TA0002;-;Exploitation for Client Execution;T1203;-;-;CIC2018;Ataque con Botnet;-;Ares, Screenshot and key logging;116;112
+T1204.001-malicious_link;Execution;TA0002;-;User Execution;T1204;Malicious Link;T1204.001;New;Enlace malicioso;TCP;wget;1;1
+T1205.001-Port_Knocking;Command and Control;TA0040;Defense Evasion, Persistence;Traffic Signaling;T1205;Port Knocking;T1205.001;New;Esconder y activar un puerto de forma remota;TCP;Knockd;5;1
+T1207-Rogue_domain_controller;Defense Evasion;TA0005;-;Rogue Domain Controller;T1207;-;-;New;DCShadow: registro de un DC fraudulento para habilitar la manipulación de datos en un entorno Active Directory;DCERPC;mimikazt;88;1
+T1210-Eternal_blue;Lateral Movement;TA0008;-;Exploitation of Remote Services;T1210;-;-;New;EternalBlue;SMB;Metasploit;24;2
+T1210-Remote_code_execution;Lateral Movement;TA0008;-;Exploitation of Remote Services;T1210;-;-;New;Ejecución de código remoto basado en vulnerabilidades de servidor FTP;FTP;Metasploit;3;1
+T1210-Web_attack;Lateral Movement;TA0008;-;Exploitation of Remote Services;T1210;-;-;CIC2018;Ataque Web;HTTP;DVWA, In-house selenium framework;260;236
+T1218.010-COM_Scriptlet;Defense Evasion;TA0005;-;System Binary Proxy Execution;T1218;Regsvr32;T1218.010;New;Ejecución de COM scriptlet remoto;TLS;Regsvr32.exe;2;1
+T1219-RemoteAccessSoftwareLocal;Command and Control;TA0040;-;Remote Access Software;T1219;-;-;New;Uso de TeamViewer para establecer canal de comunicación alternativo;UDP;TeamViewer;2;1
+T1219-RemoteAccessSoftwareNAT;Command and Control;TA0040;-;Remote Access Software;T1219;-;-;New;Uso de TeamViewer para establecer canal de comunicación alternativo;TCP;TeamViewer;145;8
+T1221-Template_Injection;Defense Evasion;TA0005;-;Template Injection;T1221;-;-;New;Inyectar un fichero mediante Phishing .docx con macros modificadas que permita pasar desapercibido;-;Sitios web convencionales (Gmail);16;2
+T1482-Domain_trust_discovery;Discovery;TA0007;-;Domain Trust Discovery;T1482;-;-;New;Descubrimiento de dominios de confianza en entorno Active Directory;LDAP;dsquery;4;1
+T1491.001-Internal_Defacement;Impact;TA0040;-;Defacement;T1491;Internal Defacement;T1491.001;New;Modificar fondo de pantalla equipo victima;TCP;PowerShell;12;2
+T1496-Cryptomining;Impact;TA0040;-;Resource Hijacking;T1496;-;-;New;Descarga y puesta en marcha de software de criptominado;-;XMRIG;12;1
+T1498.002-Amplif_dns;Impact;TA0040;-;Network Denial of Service;T1498;Reflection Amplification;T1498.002;New;Amplificación DNS;DNS;dnsdrdos;5179;5174
+T1498.002-Fraggle;Impact;TA0040;-;Network Denial of Service;T1498;Reflection Amplification;T1498.002;New;Fraggle;Chargen;hping3;1427;1425
+T1498.002-Smurf;Impact;TA0040;-;Network Denial of Service;T1498;Reflection Amplification;T1498.002;New;Smurf;ICMP;hping3;3;1
+T1498.001-HTTP_flood;Impact;TA0040;-;Network Denial of Service;T1498;Direct Network Flood;T1498.001;CIC2018;Inundación HTTP;HTTP;Low Orbit Ion Canon (LOIC) for UDP, TCP, or HTTP requests;289328;289328
+T1498.001-TCP_flood;Impact;TA0040;-;Network Denial of Service;T1498;Direct Network Flood;T1498.001;CIC2018;Inundación TCP;TCP;Low Orbit Ion Canon (LOIC) for UDP, TCP, or HTTP requests;1074379;524287
+T1498.001-UDP_flood;Impact;TA0040;-;Network Denial of Service;T1498;Direct Network Flood;T1498.001;New;Inundación UDP;UDP;  Caldera, hping3;60173;60173
+T1498.001-UDP_flood_1;Impact;TA0040;-;Network Denial of Service;T1498;Direct Network Flood;T1498.001;CIC2018;Inundación UDP;UDP;Low Orbit Ion Canon (LOIC) for UDP, TCP, or HTTP requests;110;110
+T1498.001-UDP_flood_2;Impact;TA0040;-;Network Denial of Service;T1498;Direct Network Flood;T1498.001;CIC2018;Inundación UDP;UDP;Low Orbit Ion Canon (LOIC) for UDP, TCP, or HTTP requests;1473;1473
+T1499.002-Dhcp_flood;Impact;TA0040;-;Endpoint Denial of Service;T1499;Service Exhaustion Flood;T1499.002;New;Inundación DHCP / Inanición;DHCP;DHCPig, yersinia;2;2
+T1499.001-Land;Impact;TA0040;-;Endpoint Denial of Service;T1499;OS Exhaustion Flood;T1499.001;New;LAND;TCP;hping3;116122;116122
+T1499.002-Reflexion_synack;Impact;TA0040;-;Endpoint Denial of Service;T1499;Service Exhaustion Flood;T1499.002;New;Reflexión SYN-ACK;TCP;hping3;952;952
+T1499.002-Reseteo;Impact;TA0040;-;Endpoint Denial of Service;T1499;Service Exhaustion Flood;T1499.002;New;Reseteo de Conexión;TCP;ettercap, netwox, nping;3;1
+T1499.001-Syn_suplantacion;Impact;TA0040;-;Endpoint Denial of Service;T1499;OS Exhaustion Flood;T1499.001;New;Inundación SYN con suplantación;TCP;hping3;2333;2332
+T1499.001-OS_Exhaustion_Flood;Impact;TA0040;-;Endpoint Denial of Service;T1499;OS Exhaustion Flood;T1499.001;New;Denegación de servicio a servidor web;TCP;Metasploit;340;300
+T1499.002-Slowhttptest;Impact;TA0040;-;Endpoint Denial of Service;T1499;Service Exhaustion Flood;T1499.002;CIC2018;Envio solicitudes HTTP a baja tasa;TCP;Slowhttptest;105550;105550
+T1499.002-Slowloris;Impact;TA0040;-;Endpoint Denial of Service;T1499;Service Exhaustion Flood;T1499.002;CIC2018;Envio solicitudes HTTP parciales;TCP;Slowloris;6979;5905
+T1499.003-GoldenEye;Impact;TA0040;-;Endpoint Denial of Service;T1499;Application Exhaustion Flood;T1499.003;CIC2018;Denegación de servicio a servidor web;HTTP;GoldenEye;26860;26930
+T1499.003-Hulk;Impact;TA0040;-;Endpoint Denial of Service;T1499;Application Exhaustion Flood;T1499.003;CIC2018;Denegación de servicio a servidor web;HTTP;Hulk;1802279;68350
+T1505.003-Shell_Web;Persistence;TA0003;-;Server Software Component;T1505;Web Shell;T1505.003;New;Shell Web;HTTP;Metasploit;3;1
+T1534-Internal_spearphishing;Lateral Movement;TA0008;-;Internal Spear-phishing;T1534;-;-;New;Phishing interno entre equipos pertenecientes a un dominio con servidor de correo habilitado;SMTP;MailEnabler, Thunderbird;10;1
+T1537-Transfer_Data_to_Cloud_Account;Exfiltration;TA0010;-;Transfer Data to Cloud Account;T1537;-;-;New;Transferir archivos de una cuenta a otra mediante un servicio en la nube;TCP;OneDrive;76;2
+T1542.005-TFTP_Boot;Persistence;TA0003;Defense Evasion;Pre-OS Boot;T1542;TFTP Boot;T1542.005;New;Modificación de imagen de SO mediante la suplantación de un Server TFTP ;TFTP;SSH;13;1
+T1543.003-CreateSystemProcessWindowsService;Persistence;TA0003;Privilege Escalation;Create or Modify System Process;T1543;Windows Service;T1543.003;New;Creación o modificación de servicio de Windows para garantizar la persistencia;TCP;Metasploit;3;2
+T1557.003-Dhcp_spoofing;Credential Access;TA0006;Collection;Adversary-in-the-Middle;T1557;DHCP Spoofing;T1557.003;New;DHCP Spoofing;DHCP;DHCPig, servidor DHCP;5;1
+T1563.002-RDPHijacking;Lateral Movement;TA0008;-;Remote Service Session Hijacking;T1563;RDP Hijacking;T1563.002;New;Secuestro de sesión RDP mediante tscon.exe;RDP;tscon.exe;97;2
+T1565.002-DNS_spoofing;Impact;TA0040;-;Data Manipulation;T1565;Transmitted Data Manipulation;T1565.002;New;Falsificación de una respuesta DNS por puerto UDP para redirigir a la víctima hacia una IP maliciosa;UDP;dnschef;1;1
+T1566.001-Malicious_mail;Initial Access;TA0001;-;Phishing;T1566;Spearphishing Attachment;T1566.001;CIC2018;Envío de emails con documentos maliciosos;SMTP;-;2;1
+T1566.002-Spearphishing_Link;Initial Access;TA0001;-;Phishing;T1566;Spearphishing Link;T1566.002;New;Obtener un acceso inicial mediante ingeniería social utilizando un enlace adjunto en un correo que descargue un fichero que establezca una sesión al equipo víctima;-;SEToolKit, Metasploit;170;1
+T1567.002-Exfiltration_To_Cloud_Storage;Exfiltration;TA0010;-;Exfiltration over Web Service;T1567;Exfiltration to Cloud Storage;T1567.002;New;Exfiltrar datos de un equipo a la nube;TCP;Google Drive;26;1
+T1568.001-FastFluxDNS;Command and Control;TA0040;-;Dynamic Resolution;T1568;Fast Flux DNS;T1568.001;New;Esconder un C2 Server mediante un servidor DNS con bajo TTL y modo Fast Flux;DNS;bind, Metasploit;267;261
+T1569.002-System_services_service_execution;Execution;TA0002;-;System Services;T1569;Service Execution;T1569.002;New;Ejecución de un Servicio / Fichero Ejecutable de manera remota;SVCCTL;PsExec;17;8
+T1570-Lateral_Tool_Transfer;Lateral Movement;TA0008;-;Lateral Tool Transfer;T1570;-;-;New;Transferencia de herramientas para la continuación del ataque entre máquinas utilizando protocolos de compartición de archivos;FTP;Metasploit;7;2
+T1571-SSH;Command and Control;TA0040;-;Non-Standard Port;T1571;-;-;New;Sesión SSH en puerto 2200;SSH;ssh;1;1
+T1572-Protocol_Tunneling;Command and Control;TA0040;-;Protocol Tunneling;T1572;-;-;New;Tunelizar la conexión al C2 Server mediante SSH;SSH;SSH, Metasploit;3;2
+T1573.002-AsymetricCryptography;Command and Control;TA0040;-;Encrypted Channel;T1573;Asymetric Cryptography;T1573.002;New;Encriptar conexion con C2 Server;SSL;Metasploit, OpenSSL;2;1
+T1585.001-Establish_social_accounts;Resource Development;TA0042;-;Establish Accounts;T1585;Social Media Accounts;T1585.001;New;Creación de cuentas de redes sociales;TCP;Sitios web convencionales (Facebook, Github, Microsoft ...);129;129
+T1586.001-Compromise_Accounts;Resource Development;TA0042;-;Compromise Accounts;T1586;Social Media Accounts;T1586.001;New;Fuerza bruta para acceso a web;HTTP;Hydra;6951;6951
+T1589.002-Gather_victim_identity_information;Reconnaissance;TA0043;-;Gather Victim Identity Information;T1589;Email Addresses;T1589.002;New;Recogida de cuentas de correo eléctronico y validación de las mismas;SMTP;theHarvester, bulk-email-verifier;7;1
+T1595.002-Port_Scanning;Reconnaissance;TA0043;-;Active Scanning;T1595;Vulnerability Scanning;T1595.002;New;Escaneo de vulnerabilidades;TCP;nmap;2058;2049
+T1595.003-Web_page_scanning1;Reconnaissance;TA0043;-;Active Scanning;T1595;Wordlist Scanning;T1595.003;New;Escaneo de página web;HTTP;Dirb;181;180
+T1595.003-Web_page_scanning2;Reconnaissance;TA0043;-;Active Scanning;T1595;Wordlist Scanning;T1595.003;New;Escaneo de página web;HTTP;GoBuster;335;335
+T1598.003-Spearphishing_Link;Reconnaissance;TA0043;-;Phishing for Information;T1598;Spearphishing Link;T1598.003;New;Recogida de información de la víctima mediante ingeniería social;-;SEToolKit;59;2
+T1599.001-NBB1;Defense Evasion;TA0005;-;Network Boundary Bridging;T1599;NAT Traversal;T1599.001;New;Modificación de políticas de red para permitir tráfico externo a la red  interna;SSH;iptables;5;1
+T1599.001-NBB2;Defense Evasion;TA0005;-;Network Boundary Bridging;T1599;Network Address Translation Transversal;T1599.001;New;Modificación de políticas de red para permitir tráfico externo a la red  interna;SSH;iptables;3;1
+T1602.001-MIB_Dump;Collection;TA0009;-;Data from Configuration Repository;T1602;SNMP (MIB Dump);T1602.001;New;Recogida MIB de un equipamiento;SNMP;Metasploit;2;1
+T1612-BuildImageOnHostLocal;Defense Evasion;TA0005;-;Build Image on Host;T1612;-;-;New;Creacion y montado de un contenedor con un servidor SSH sobre un equipo previamente vulnerado;SSH;DockerAPI, SSH;69;1
+T1612-BuildImageOnHostNAT;Defense Evasion;TA0005;-;Build Image on Host;T1612;-;-;New;Creacion y montado de un contenedor con un servidor SSH sobre un equipo previamente vulnerado;SSH;DockerAPI, SSH;119;118
+T1615-Group_Policy_Discovery;Discovery;TA0007;-;Group Policy Discovery;T1615;-;-;New;Comandos mediante Powershell para obtener información sobre configuraciones de políticas de grupo;TCP;PowerShell;53;41
+T1659-Content_Injection;Initial Access;TA0001;Command and Control;Content Injection;T1659;-;-;New;Realizar una suplantación de identidad DHCP, saturando el servidor DHCP verdadero para que el servidor DHCP del atacante procese las consultas de un usuario. Posteriormente se manipula alguna consulta inyectando contenido malicioso;TCP;dhcpstarv, Metasploit;89;2
+T1665-Hide_Infrastructure;Command and Control;TA0011;-;Hide Infrastructure;T1665;-;-;New;Esconder el servidor C2 utilizando un Proxy;HTTP;Metasploit, HTTP Server;12;2
+T1667-Email_bombing;Impact;TA0040;-;Email Bombing;T1667;-;-;New;Inundación masiva de correos electrónicos hacia el servidor de la víctima por puerto TCP;TCP;swaks;100;100
