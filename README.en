@@ -1,0 +1,398 @@
+#
+# ATT&CK-Oriented Network Attack PCAPNG Dataset
+#
+# Public dataset of labeled ATT&CK-oriented network attack captures
+#
+# Cybersecurity Lab - Network Eng. Research Group - TIC154
+#
+
+
+GENERAL INFORMATION
+-------------------
+
+1. Dataset title:	ATT&CK-Oriented Network Attack PCAPNG Dataset
+
+
+2. Authorship:
+
+	Name:		Javier Muñoz-Calle
+	Institution:	University of Seville (Department of Telematics Engineering)
+	Email:		fjmc@us.es
+	ORCID:		0000-0001-8146-8438
+
+
+	Name:		Rafael Estepa Alonso
+	Institution:	University of Seville (Department of Telematics Engineering)
+	Email:		rafaestepa@us.es
+	ORCID:		0000-0001-8505-1920
+
+
+	Name:		Antonio Estepa Alonso
+	Institution:	University of Seville (Department of Telematics Engineering)
+	Email:		aestepa@us.es
+	ORCID:		0000-0003-1841-3973
+
+
+	Name:		Jesús E. Díaz-Verdejo
+	Institution:	University of Granada (Department of Signal Theory, Telematics and Communications - CITIC)
+	Email:		jedv@ugr.es
+	ORCID:		0000-0002-8424-9932
+
+
+
+DESCRIPTION
+-----------
+
+1. Dataset language: English
+
+
+2. Abstract:
+
+This repository contains a publicly available ATT&CK-oriented network attack dataset composed of manually generated and labeled PCAPNG captures associated with MITRE ATT&CK Enterprise techniques and sub-techniques observable from network traffic.
+
+The dataset was generated under controlled laboratory conditions using real offensive tools, vulnerable services, protocol-compliant implementations, and manually supervised attack execution procedures. The repository includes original PCAPNG captures, manually labeled flow annotations, attack metadata, Snort configurations and rule sets, and the pruning evaluation results employed throughout the experimental study.
+
+The objective of the dataset is to provide a realistic and reproducible benchmark for evaluating intrusion detection systems, ATT&CK-oriented monitoring approaches, traffic analysis methodologies, flow-based detection techniques, and rule pruning strategies.
+
+
+3. Keywords:	network intrusion detection systems; MITRE ATT&CK; training datasets
+
+
+4. Date of data collection:	2024 - 2026
+
+
+5. Publication date:		2026
+
+
+6. Grant information:
+
+	Grant Agency:	University of Seville
+	Grant Number:	XXX
+
+
+
+
+ACCESS INFORMATION
+------------------
+
+1. Creative Commons License of the dataset: BY-NC-ND 4.0
+
+2. Usage Conditions: This dataset can be freely used for research purposes under the condition that the following papers must be cited:
+
+Muñoz-Calle, Javier; Estepa, Rafael; Estepa, Antonio; Díaz-Verdejo, Jesús E.; "On the detection capability of opensource signature-based IDSs in the context of network attacks" [DOI Pending]
+
+
+3. Dataset DOI: https://doi.org/10.12795/XXX/YYY
+
+4. Related publication:
+
+Muñoz-Calle, Javier; Estepa, Rafael; Estepa, Antonio; Díaz-Verdejo, Jesús E.; "On the detection capability of opensource signature-based IDSs in the context of network attacks" [DOI Pending]
+
+
+
+REPOSITORY ORGANIZATION
+-----------------------
+
+The repository is organized into the following main directories and files:
+
+	attacks/
+		Attack_pcaps.csv	Metadata associated with the 110 PCAPNG captures
+		pcaps/			Original ATT&CK-oriented PCAPNG captures
+		flows/			Manually labeled flow-level annotations associated with every PCAPNG capture
+
+	snort/
+		config/			Snort configuration files employed during the experimental evaluation
+		rules/			Talos Registered and Emerging Threats Open rule sets used throughout the study
+
+	pruning/
+		F1-Score/		Pruning evaluation results associated with the F1-Score metric
+		GM/			Pruning evaluation results associated with the Geometric Mean metric
+
+
+The following subsections describe the structure and contents of each component.
+
+
+
+ATTACK METADATA
+---------------
+
+The file:
+
+	attacks/Attack_pcaps.csv
+
+contains the complete metadata associated with the 110 PCAPNG captures included in the dataset.
+
+Each row corresponds to one PCAPNG capture and contains the following fields:
+
+	- Tactic:			ATT&CK tactic associated with the capture
+
+	- Technique_ID:			ATT&CK technique identifier
+
+	- Sub-technique_ID:		ATT&CK sub-technique identifier when applicable
+
+	- Technique/Sub-technique:	Name of the ATT&CK technique or sub-technique
+
+	- Origin: 			Origin of the PCAPNG capture:
+		* New:			Manually generated during this work
+		* CIC2018:		Extracted and adapted from the CSE-CIC-IDS2018 dataset
+
+	- Description:			Short description of the implemented attack
+
+	- Objective:			Operational objective pursued by the attack
+
+	- Protocols:			Primary protocols leveraged during attack execution
+
+	- Tools:			Offensive tools used during the implementation
+
+	- #Flows:			Total number of flows contained in the PCAPNG capture
+
+	- #Attack_Flows:		Number of flows associated with attack activity
+
+
+The naming convention of PCAPNG captures follows the format:
+
+	<Technique/Sub-technique_ID>-<Technique_Name>.pcapng
+
+Examples:
+
+	T1568.001-Fast_Flux_DNS.pcapng
+	T1187-Forced_Authentication.pcapng
+	T1563.002-RDP_Hijacking.pcapng
+
+
+
+ATTACK PCAPNG CAPTURES
+----------------------
+
+The directory:
+
+	attacks/pcaps/
+
+contains the 110 original PCAPNG captures generated during the experimental campaign.
+
+The captures preserve all traffic generated during attack execution, including:
+
+	- malicious traffic
+	- auxiliary attack traffic
+	- protocol negotiation exchanges
+	- service interaction traffic
+	- legitimate communications required during attack execution
+
+Consequently, not all flows contained within a PCAPNG capture correspond to direct attack payload delivery.
+
+The dataset covers:
+
+	- 76 ATT&CK techniques
+	- 43 ATT&CK sub-techniques
+	- 14 ATT&CK tactics: the implemented attacks include traffic associated with:
+		* Command and Control
+		* Credential Access
+		* Discovery
+		* Exfiltration
+		* Initial Access
+		* Lateral Movement
+		* Persistence
+		* Defense Evasion
+		* Impact
+		* Reconnaissance
+		* Collection
+		* Execution
+		* Resource Development
+		* Privilege Escalation
+
+
+
+FLOW-LEVEL LABELING
+-------------------
+
+The directory:
+
+	attacks/flows/
+
+contains manually labeled flow annotations associated with every PCAPNG capture.
+
+Each PCAPNG file has an associated CSV annotation file sharing the same base filename.
+
+Flows were identified at the IP layer according to transport-level communication tuples:
+
+	- TCP/UDP:	(IP_Src, IP_Dst, Src_Port, Dst_Port, IP_Protocol)
+
+	- ICMP:		(IP_Src, IP_Dst, ICMP_Type, ICMP_ID)
+
+
+Each CSV row corresponds to one unidirectional flow and contains the following fields:
+
+	- Flow_Number:		Identifier used to associate both directions of the same bidirectional communication
+
+	- Seq:			Transmission order of the flow within the PCAPNG capture
+
+	- Start_TimeStamp:	Timestamp of the first packet belonging to the flow
+
+	- Finish_TimeStamp:	Timestamp of the last packet belonging to the flow
+
+	- Protocol:		Transport or network-layer protocol employed (TCP, UDP, ICMP, etc.)
+
+	- Src_IP:		Source IP address
+
+	- Src_Port:		Source transport-layer port
+
+	- Dst_IP:		Destination IP address
+
+	- Dst_Port:		Destination transport-layer port
+
+	- ICMP_ID:		ICMP identifier field when applicable
+
+	- Type:			Traffic classification label:
+		* P:		Traffic directly associated with the ATT&CK technique or sub-technique implemented in the PCAPNG capture
+		* C:		Auxiliary attack traffic generated by complementary ATT&CK techniques required to execute the attack scenario
+		* L:		Legitimate communications generated during attack execution
+
+	- ID_Sub/Technique:	ATT&CK sub-technique identifier or, when not applicable, the associated ATT&CK technique identifier
+
+	- #Attack_Messages:	Number of attack messages transported within the flow
+
+	- #Attack_Instances:	Number of attack instances observed within the flow
+
+
+This labeling methodology enables fine-grained differentiation between operational attack traffic, auxiliary protocol interactions, and legitimate communications, facilitating IDS evaluation, ATT&CK-oriented traffic analysis, and supervised machine learning experiments requiring flow-level ground truth.
+
+
+SNORT CONFIGURATIONS AND RULE SETS
+----------------------------------
+
+The repository includes the following directories related to the Snort IDS execution environment employed throughout the experimental evaluation:
+
+	snort/config/
+		Snort configuration files employed to execute the IDS with different rule packages and detection capability configurations:
+
+			- snort_Registered.conf
+				Configuration file employing the Talos Registered rules as downloaded for Snort v2.9 without modifying the default configuration or commented rules.
+
+			- snort_Registered-uncommented.conf
+				Configuration file employing the Talos Registered rules with all commented rules and ".rules" file includes enabled, except "deleted.rules", whose rules contain the string "DELETED" at the beginning of the "msg" field.
+
+			- snort_ETOpen.conf
+				Configuration file employing the Emerging Threats Open rules as downloaded without modifying the default configuration or commented rules.
+
+			- snort_ETOpen-uncommented.conf
+				Configuration file employing the Emerging Threats Open rules with all commented rules enabled except those marked with the message string "ET DELETED" or contained in the file "emerging-deleted.rules".
+
+			- snort_Community.conf
+				Configuration file employing the Talos Community GPLv2 rules as downloaded without modifying commented rules.
+
+			- snort_Community-uncommented.conf
+				Configuration file employing the Talos Community GPLv2 rules with all commented rules enabled.
+
+
+	snort/rules/
+		Rule files employed during the IDS evaluation, provided in both original and uncommented versions. The included rule sets correspond to the versions used during the experimental campaign dated 01/04/2026:
+
+			- Talos_Registered/registered-all.rules
+				Merged file containing all enabled ".rules" files from the Talos Registered package (preproc_rules, rules, and so_rules).
+
+			- Talos_Registered-uncommented/registered-all-uncommented.rules
+				Merged file containing all ".rules" files from the Talos Registered package except deleted rules contained in "deleted.rules".
+
+			- ETOpen/emerging-all.rules
+				File containing all rules from the official Emerging Threats Open package.
+
+			- ETOpen-uncommented/emerging-all-uncommented.rules
+				File containing all uncommented rules from the official Emerging Threats Open package except those marked with the string "ET DELETED".
+
+			- Talos_Community/community.rules
+				File containing all rules from the Talos Community package.
+
+			- Talos_Community-uncommented/community-uncommented.rules
+				File containing all uncommented rules from the Talos Community package.
+
+
+
+
+These resources allow independent reproduction of the IDS evaluation environment used throughout the study and facilitate future IDS benchmarking and rule pruning experiments.
+
+
+
+PRUNING EVALUATION RESULTS
+--------------------------
+
+The directory pruning contains the pruning evaluation results associated with the Geometric Mean (GM) metric. It contains the following files:
+
+	- No_pruning.csv
+	- Pruning_500.csv
+	- Pruning_1000.csv
+	- Generalized_conservative_pruning.csv
+	- Aggressive_pruning.csv
+
+corresponding to the evaluated pruning strategies:
+
+	- No pruning:				Baseline configuration preserving all TP and FP SIDs
+
+	- Pruning 500:				Configuration removing every SID that generated more than 500 flow-correlated
+						alerts on the benign set.
+
+	- Pruning 1000:				Configuration removing every SID that generated more than 1000 flow-correlated
+						alerts on the benign set.
+
+	- Generalized Conservative pruning:	Configuration removing every SID that produced at least one false positive
+						on the benign set, regardless of its contribution to detection.
+
+	- Aggressive pruning:			Configuration iteratively removing TP SIDs whose
+						elimination improves the target evaluation metric
+
+Note that we denote by Flow-correlated Alerts the distinct SIDs triggered by each flow. Multiple alerts generated by the same SID within the same flow are counted only once.
+
+
+For every analyzed ruleset (RS1-RS6), each CSV file contains one column per evaluated ruleset and the following pruning information:
+
+	- Removed TP SID List		SIDs associated with attack traffic alerts removed at the current pruning stage with respect to the previous less aggressive pruning configuration (i.e., Conservative pruning relative to No pruning, and Aggressive pruning relative to Conservative pruning).
+
+	- #Removed TP SID		Number of removed TP SIDs.
+
+	- Retained TP SID List		SIDs associated with attack traffic alerts retained after the current pruning stage.
+
+	- #Retained TP SID		Number of retained TP SIDs.
+
+	- Removed TP SID List		SIDs associated with attack traffic alerts removed at the current pruning stage with respect to the previous less aggressive pruning configuration.
+
+	- #Removed FP SID		Number of removed FP SIDs.
+
+	- Retained FP SID List		SIDs associated exclusively with legitimate traffic alerts retained after the current pruning stage.
+
+	- #Retained FP SID		Number of retained FP SIDs.
+
+where:
+
+	- TP:	True Positive Snort rules generating alerts associated with attack traffic
+	- FP:	False Positive Snort rules generating alerts associated exclusively with legitimate traffic
+
+
+
+These files facilitate independent verification and reproducibility of the pruning experiments presented in the associated publication.
+
+
+
+DATASET STATISTICS
+------------------
+
+General statistics of the dataset are summarized below:
+
+	+----------------------+---------+
+	| Metric               |   Value |
+	+----------------------+---------+
+	| #PCAPNG captures     |     110 |
+	| #ATT&CK techniques   |      76 |
+	| #Sub-techniques      |      43 |
+	| #ATT&CK tactics      |      14 |
+	| #Flows               | 3573695 |
+	| #Attack flows        | 1286682 |
+	+----------------------+---------+
+
+
+
+
+FURTHER DETAILS
+---------------
+
+Additional details are provided in the following resources:
+
+Muñoz-Calle, Javier; Estepa, Rafael; Estepa, Antonio; Díaz-Verdejo, Jesús E.; "On the detection capability of opensource signature-based IDSs in the context of network attacks" [DOI Pending]
