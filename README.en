@@ -293,6 +293,9 @@ The repository includes the following directories related to the Snort IDS execu
 			- ETOpen-max/emerging-all-max.rules
 				File containing all uncommented rules from the official Emerging Threats Open package except those marked with the string "ET DELETED".
 
+Note:
+The Talos Registered rule package includes dynamic rules implemented as shared libraries (*.so). The corresponding bridge rules contained in the "so_rules" directory are included in the merged rule files provided in this repository; however, the "*.so" libraries are not redistributed and must be obtained from the official Talos Registered rule package. To execute these rules, users must install the corresponding "*.so" libraries in the directory specified by the SO_RULE_PATH and dynamicdetection directives of the Snort configuration (by default, /usr/local/lib/snort_dynamicrules/).
+
 
 
 
