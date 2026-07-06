@@ -263,10 +263,10 @@ The repository includes the following directories related to the Snort IDS execu
 	snort/config/
 		Snort configuration files employed to execute the IDS with different rule packages and detection capability configurations:
 
-			- snort_Registered.conf
+			- snort_Talos_Registered.conf
 				Configuration file employing the Talos Registered rules as downloaded for Snort v2.9 without modifying the default configuration or commented rules.
 
-			- snort_Registered-max.conf
+			- snort_Talos_Registered-max.conf
 				Configuration file employing the Talos Registered rules with all commented rules and ".rules" file includes enabled, except "deleted.rules", whose rules contain the string "DELETED" at the beginning of the "msg" field.
 
 			- snort_ETOpen.conf
