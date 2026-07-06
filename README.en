@@ -104,9 +104,7 @@ The repository is organized into the following main directories and files:
 		config/			Snort configuration files employed during the experimental evaluation
 		rules/			Talos Registered and Emerging Threats Open rule sets used throughout the study
 
-	pruning/
-		F1-Score/		Pruning evaluation results associated with the F1-Score metric
-		GM/			Pruning evaluation results associated with the Geometric Mean metric
+	pruning/			Pruning evaluation results associated with the Geometric Mean metric
 
 
 The following subsections describe the structure and contents of each component.
