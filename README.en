@@ -176,7 +176,7 @@ contains the 110 original PCAPNG captures generated during the experimental camp
 
 The naming convention of each PCAPNG capture follows the format:
 
-	<(Sub)Technique_ID>-<Technique_Name>-<Attack_Protocol>.pcapng
+	<(Sub)Technique_ID>-<Technique_Name>-<Attack_Protocol>[<Variant_Number>].pcapng
 
 where:
 
@@ -189,7 +189,9 @@ where:
 	- Attack_Protocol
 		Primary network protocol on which the implemented attack is based.
 
-This naming convention facilitates the direct identification of the ATT&CK technique implemented in each capture and the primary protocol involved in the attack.
+	- Variant_Number (optional)
+		Numeric suffix appended when multiple captures implement the same ATT&CK technique using the same primary protocol. The suffix uniquely identifies different attack scenarios or implementations and is not part of the protocol name.
+
 
 The captures preserve all traffic generated during attack execution, including:
 
