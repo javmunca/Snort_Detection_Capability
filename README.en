@@ -174,6 +174,23 @@ contains the 110 original PCAPNG captures generated during the experimental camp
 	- cic2018/
 		PCAPNG captures extracted from the CSE-CIC-IDS2018 dataset and incorporated into the repository
 
+The naming convention of each PCAPNG capture follows the format:
+
+	<(Sub)Technique_ID>-<Technique_Name>-<Attack_Protocol>.pcapng
+
+where:
+
+	- (Sub)Technique_ID
+		ATT&CK technique or sub-technique identifier associated with the implemented attack.
+
+	- Technique_Name
+		ATT&CK technique or sub-technique name.
+
+	- Attack_Protocol
+		Primary network protocol on which the implemented attack is based.
+
+This naming convention facilitates the direct identification of the ATT&CK technique implemented in each capture and the primary protocol involved in the attack.
+
 The captures preserve all traffic generated during attack execution, including:
 
 	- malicious traffic
