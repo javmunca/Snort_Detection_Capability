@@ -166,7 +166,13 @@ The directory:
 
 	attacks/pcaps/
 
-contains the 110 original PCAPNG captures generated during the experimental campaign.
+contains the 110 original PCAPNG captures generated during the experimental campaign. The captures are organized into two subdirectories according to their origin:
+
+	- new/
+		PCAPNG captures manually generated during this study
+
+	- cic2018/
+		PCAPNG captures extracted from the CSE-CIC-IDS2018 dataset and incorporated into the repository
 
 The captures preserve all traffic generated during attack execution, including:
 
