@@ -1,5 +1,0 @@
-Flow Number,Seq,Start TimeStamp,Finish TimeStamp,Protocol,Src IP,Src Port,Dst IP,Dst Port,ICMP ID,Type,ID Sub/Technique,#Attack Messages,#Attack Instances,Unnamed: 14
-1.0,1,1722933791.10371,1722933793.484983,TCP,172.16.2.2,57986,172.16.1.2,8888,,C,T1059,0.0,1.0,Apertura de sesión Sandcat (shell remota). Instancia colateral.
-,2,1722933791.103739,1722933793.456452,TCP,172.16.1.2,8888,172.16.2.2,57986,,,,,,
-2.0,3,1722933795.205179,1722934216.578293,TCP,172.16.2.2,51716,172.16.1.2,8888,,P,T1053.002,1.0,1.0,Comando at 22:00 … que programa la tarea; la regla genérica dispara 1 mensaje de alerta. Instancia principal.
-,4,1722933795.205216,1722934216.578318,TCP,172.16.1.2,8888,172.16.2.2,51716,,,,,,

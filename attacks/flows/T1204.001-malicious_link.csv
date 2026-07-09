@@ -1,3 +1,0 @@
-Flow Number, Seq,Start TimeStamp,Finish TimeStamp,Protocol,Src IP,Src Port,Dst IP,Dst Port,ICMP ID,Type,ID Sub/Technique,#Attack Messages,#Attack Instances
-1.0,1,1652609699.5506473,1652609699.5506473,TCP,172.16.2.2,56642,172.16.1.2,80,,P,T1024.001,1.0,1.0
-,2,1652609699.5510564,1652609699.5510564,TCP,172.16.1.2,80,172.16.2.2,56642,,,,,
