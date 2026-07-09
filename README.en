@@ -186,8 +186,8 @@ where:
 	- Technique_Name
 		ATT&CK technique or sub-technique name.
 
-	- Attack_Protocol
-		Primary network protocol on which the implemented attack is based.
+	- Attack_Protocol (optional)
+		Primary network protocol on which the implemented attack is based. This field is omitted for attack implementations that rely on multiple protocols and therefore cannot be associated with a single primary attack protocol.
 
 	- Variant_Number (optional)
 		Numeric suffix appended when multiple captures implement the same ATT&CK technique using the same primary protocol. The suffix uniquely identifies different attack scenarios or implementations and is not part of the protocol name.
